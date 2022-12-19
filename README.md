@@ -128,9 +128,15 @@ The following figure illustrate the protocol.
 또한 보통 프로세스의 공유자원이라고 하면 shared memory, RPC, message queue 정도만 알고 있었는데, pipe가 있다는 것도 알게 되었다.
 
 ## 결과 screen shot
-![mine2](https://user-images.githubusercontent.com/95288696/208418977-042fffe3-abff-4158-abf2-b3390cab922b.png)
-![mine1](https://user-images.githubusercontent.com/95288696/208418983-cba337eb-94f5-4c52-b2b1-4fd23204b943.png)
+
 ![mine](https://user-images.githubusercontent.com/95288696/208418991-f1160193-ea9a-4739-84ab-5a7156a3fe5f.png)
+
+위 사진은 내가 받은 토큰들을 커맨드 창에서 확인한 모습이다.<br/>
+이를 실어서 해당 서버에 그대로 보냈지만, 결과 메세지가 도착하지 않았다. 아무래도 순서가 문제인 것 같다.
+
+![mine2](https://user-images.githubusercontent.com/95288696/208419963-81e8f974-46c9-4f1d-a495-2292188d7d48.png)
+
+이 사진은 내가 랩서버에 보낸 패킷이다. 성공적으로 토큰정보가 line feed까지 포함해서 간 것을 볼 수 있다.
 
 
 
