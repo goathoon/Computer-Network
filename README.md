@@ -127,6 +127,12 @@ The following figure illustrate the protocol.
 이 기회에 멀티프로세싱을 처음 해보았다. 다음학기에 시스템프로그래밍 실습을 들을 예정이어서 꽤나 많은 도움을 받은 것 같다. 해당과목을 들었다면 시간 내에 프로젝트를 끝냈지 않았을 까 하는 아쉬움이 있다. Fork를 하면 어떻게 되는지, 좀비프로세스는 어떻게 처리하는지, 그리고 signal handler에 대한 과정을 찾아보며 많이 공부하게 되었다. 공부했던 모든 것들을 프로젝트에 녹아낼 수 없어서 아쉬웠다.
 또한 보통 프로세스의 공유자원이라고 하면 shared memory, RPC, message queue 정도만 알고 있었는데, pipe가 있다는 것도 알게 되었다.
 
+## 결과 screen shot
+![mine2](https://user-images.githubusercontent.com/95288696/208418977-042fffe3-abff-4158-abf2-b3390cab922b.png)
+![mine1](https://user-images.githubusercontent.com/95288696/208418983-cba337eb-94f5-4c52-b2b1-4fd23204b943.png)
+![mine](https://user-images.githubusercontent.com/95288696/208418991-f1160193-ea9a-4739-84ab-5a7156a3fe5f.png)
+
+
 
 
  
