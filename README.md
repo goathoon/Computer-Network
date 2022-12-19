@@ -10,7 +10,7 @@
 >Format of Trace (PCAP formatted)
 The first 24 bytes is for the file information. You may safely ignore this file header. Each packet is encapsulated multiple packet headers. The outmost one is 16-byte pcap_pkthdr. The format of this header is shown in Figure 1. The struct timeval sec refers to the timestamp that packet was recorded into the trace in second. The struct timeval usec refers to the timestamp that packet was recorded into the trace in micro-second. The caplen refers to the length of the packet presented in the trace. The len refers to the actual length of the packet. Headers in the next are the Ethernet header and IP header. The formats of these headers are available in elsewhere. 
 References http://www.tcpdump.org.
- 
+<hr/>
 Figure 1: The format of pcap_pkthdr
 Parsing Information
 You need to parse the following information in the trace.
