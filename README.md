@@ -36,7 +36,7 @@ Figure 1: The format of pcap_pkthdr
 
 <hr/>
 
-### 코드 요약 정보
+#### 코드 요약 정보
 
 패킷파일의 헤더에 포함된 24바이트를 fseek 함수로 파일 읽기 위치를 뒤로 옮긴 후에 parsing을 진행한다.<br/>
 그 다음부터 순차적으로 2계층 3계층 헤더 (각, Ethernet header 와 IP header) 정보들을 순차적으로 파싱한다. 헤더는 앞에 차곡차곡 붙어져 감을 잊지말자.<br/>
