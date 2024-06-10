@@ -78,49 +78,45 @@ int main(int argc, char **argv)
         if (pid == 0)
         {
             // Child process
-            while (1)
+            client_len = sizeof(client);
+            new_sd = accept(sd, (struct sockaddr *)&client, &client_len);
+            if (new_sd == -1)
             {
-                client_len = sizeof(client);
-                new_sd = accept(sd, (struct sockaddr *)&client, &client_len);
-                if (new_sd == -1)
-                {
-                    puts("No socket available");
-                    continue;
-                }
-                else
-                {
-                    puts("New client connected");
-                }
-
-                memset(buf, 0x00, BUFLEN);
-                while ((str_len = read(new_sd, buf, BUFLEN)) != 0)
-                {
-                    write(new_sd, buf, str_len);
-                }
-                printf("Here is coming: %s\n", buf);
-                close(new_sd);
-                puts("Client disconnected");
-
-                // Make a new socket to communicate with the server
-                bzero((char *)&server, sizeof(struct sockaddr_in));
-                server.sin_family = AF_INET;
-                server.sin_port = htons(13666);
-                server.sin_addr.s_addr = htonl(INADDR_ANY);
-                if ((sock_tok = socket(AF_INET, SOCK_STREAM, 0)) == -1)
-                {
-                    fprintf(stderr, "Can't create a token socket\n");
-                    exit(1);
-                }
-                if (connect(sock_tok, (struct sockaddr *)&server, sizeof(server)) == -1)
-                {
-                    fprintf(stderr, "Can't connect with token socket\n");
-                    exit(1);
-                }
-                write(sock_tok, buf, BUFLEN);
-                close(sock_tok);
+                puts("No socket available");
+                continue;
             }
-            close(sd);
-            return 0;
+            else
+            {
+                puts("New client connected");
+            }
+
+            memset(buf, 0x00, BUFLEN);
+            while ((str_len = read(new_sd, buf, BUFLEN)) != 0)
+            {
+                write(new_sd, buf, str_len);
+            }
+            printf("Here is coming: %s\n", buf);
+            close(new_sd);
+            puts("Client disconnected");
+
+            // Make a new socket to communicate with the server
+            bzero((char *)&server, sizeof(struct sockaddr_in));
+            server.sin_family = AF_INET;
+            server.sin_port = htons(13666);
+            server.sin_addr.s_addr = htonl(INADDR_ANY);
+            if ((sock_tok = socket(AF_INET, SOCK_STREAM, 0)) == -1)
+            {
+                fprintf(stderr, "Can't create a token socket\n");
+                exit(1);
+            }
+            if (connect(sock_tok, (struct sockaddr *)&server, sizeof(server)) == -1)
+            {
+                fprintf(stderr, "Can't connect with token socket\n");
+                exit(1);
+            }
+            write(sock_tok, buf, BUFLEN);
+            close(sock_tok);
+            eixit(0);
         }
         else if (pid < 0)
         {
